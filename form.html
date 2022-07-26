@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+
+    <form name="myform" class="contact"  method="POST" onsubmit="sendemail()" >
+        <label for="fname">YOUR NAME</label><br>
+        <input id="fullname" name="fname" type="text" for="fname" placeholder="ENTER YOUR NAME" required><br>
+        <label for="phn" >PHONE NO.</label><br>
+        <input id="phno" name="phn" type="tel" placeholder="ENTER YOUR PHONE NUMBER" required><br>
+        <label for="email">EMAIL ID</label><br>
+        <input name="email" id="emailid" type="email" for="email" placeholder="ENTER YOUR EMAIL" required><br>
+        <label for="subject">SUBJECT</label><br>
+        <textarea name="write" id="subject" name="subject" placeholder="WRITE SOMETHING" style="height:250px" required></textarea><br>
+        <button type="submit" class="subbtn" >SUBMIT</button>
+
+    </form>
+    
+
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendemail(){
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "chiraggupta31cg@gmail.com", 
+            Password : "D0B1CE859AEFBD01F7DD6FFEE54F5B5A00AA",
+            To : 'djgupta17@gmail.com',
+            From : document.getElementById("emailid").value,
+            Subject : "New enquiry contact form",
+            Body : "Hello Brother !! Brother Cap"
+        }).then(
+            message => alert("Your request is submitted")
+            );
+        }
+        
+    </script>
+</body>
+</html>
